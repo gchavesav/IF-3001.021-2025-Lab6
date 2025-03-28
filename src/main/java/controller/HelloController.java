@@ -30,21 +30,6 @@ public class HelloController {
     }
 
     @FXML
-    public void Runtime(ActionEvent actionEvent) {
-        load("runtime.fxml");
-    }
-
-    @FXML
-    public void Example(ActionEvent actionEvent) {
-        load("example.fxml");
-    }
-
-    @FXML
-    public void Recursive(ActionEvent actionEvent) {
-        load("recursive.fxml");
-    }
-
-    @FXML
     public void Home(ActionEvent actionEvent) {
         this.txtMessage.setText("Laboratory 1");
         this.bp.setCenter(ap);
@@ -59,5 +44,20 @@ public class HelloController {
     public void exampleOnMousePressed(Event event) {
         this.txtMessage.setText("Loading Example. Please wait!!!");
 
+    }
+
+    @FXML
+    public void vectorOnAction(ActionEvent actionEvent) {
+        load("vector.fxml");
+    }
+
+    @FXML
+    public void probabilisticOnAction(ActionEvent actionEvent) {
+        load("probabilistic.fxml");
+    }
+
+    @FXML
+    public void dynamicOnAction(ActionEvent actionEvent) {
+        load("dynamic.fxml");
     }
 }

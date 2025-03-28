@@ -27,4 +27,21 @@ public class Utility {
     public static String format(long n) {
         return new DecimalFormat("###,###,###.##").format(n);
     }
+
+    public static int min(int x, int y) {
+        return x<y ? x : y;
+    }
+
+    public static int max(int x, int y) {
+        return x>y ? x : y;
+    }
+
+    public static String show(int[] a) {
+        String result="";
+        for(int item : a){
+            if(item == 0) break; //si es cero es xq no hay mas elementos
+            result+=item + " ";
+        }
+        return result;
+    }
 }
