@@ -8,4 +8,8 @@ module ucr.lab {
     exports ucr.lab;
     exports controller;
     opens controller to javafx.fxml;
+
+    /*Sin este código no carga los tableviews de Student, Course, Register*/
+    opens domain to javafx.fxml;
+    exports domain;
 }

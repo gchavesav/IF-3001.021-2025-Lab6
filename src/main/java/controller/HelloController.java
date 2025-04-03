@@ -31,7 +31,7 @@ public class HelloController {
 
     @FXML
     public void Home(ActionEvent actionEvent) {
-        this.txtMessage.setText("Laboratory 1");
+        this.txtMessage.setText("Laboratory 4");
         this.bp.setCenter(ap);
     }
 
@@ -47,17 +47,17 @@ public class HelloController {
     }
 
     @FXML
-    public void vectorOnAction(ActionEvent actionEvent) {
-        load("vector.fxml");
+    public void studentsOnAction(ActionEvent actionEvent) {
+        load("student.fxml");
     }
 
     @FXML
-    public void probabilisticOnAction(ActionEvent actionEvent) {
-        load("probabilistic.fxml");
+    public void registerOnAction(ActionEvent actionEvent) {
+        load("register.fxml");
     }
 
     @FXML
-    public void dynamicOnAction(ActionEvent actionEvent) {
-        load("dynamic.fxml");
+    public void coursesOnAction(ActionEvent actionEvent) {
+        load("course.fxml");
     }
 }
