@@ -7,6 +7,50 @@ import static org.junit.jupiter.api.Assertions.*;
 class SinglyLinkedListTest {
 
     @Test
+    void test(){
+        SinglyLinkedList list = new SinglyLinkedList();
+        for (int i = 0; i < 20; i++) {
+            list.add(util.Utility.random(50));
+        }
+        System.out.println(list);
+        try {
+            list.sort();
+            System.out.println(list);
+
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    void test11(){
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.add(20); list.add(10); list.add(15);
+        System.out.println(list);
+        try {
+            System.out.println("Get Last: "+list.getLast()+". Get Prev:"
+                    +list.getPrev(list.getLast()));
+            Object element = list.removeLast();
+            System.out.println("Removed Last:" +element);
+            System.out.println(list);
+            System.out.println("Get Last: "+list.getLast()+". Get Prev:"
+                    +list.getPrev(list.getLast()));
+            element = list.removeLast();
+            System.out.println("Removed Last:" +element);
+            System.out.println(list);
+            System.out.println("Get Last: "+list.getLast()+". Get Prev:"
+                    +list.getPrev(list.getLast()));
+            System.out.println("GetPrev(50): "+ list.getPrev(50));
+            element = list.removeLast();
+            System.out.println("Removed Last:" +element);
+            System.out.println("Get Last: "+list.getLast()+". Get Prev:"
+                    +list.getPrev(list.getLast()));
+            System.out.println(list);
+
+
+        } catch (ListException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     void test1(){
         SinglyLinkedList list = new SinglyLinkedList();
         list.add(new Student("1", "Maria", 20, "Cartago"));
