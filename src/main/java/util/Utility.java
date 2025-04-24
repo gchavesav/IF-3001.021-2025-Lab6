@@ -1,29 +1,22 @@
 package util;
 
-import domain.SinglyLinkedList;
-import domain.Student;
-
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Random;
+import java.time.LocalDate;
 
 public class Utility {
-    private static final Random random;
-    private static SinglyLinkedList studentList;
+    private static Random random;
 
     //constructor estatico, inicializador estatico
     static {
         // semilla para el random
         long seed = System.currentTimeMillis();
         random = new Random(seed);
-        studentList = new SinglyLinkedList();
-    }
 
-    public static SinglyLinkedList getStudentList() {
-        return studentList;
-    }
-
-    public static void setStudentList(SinglyLinkedList studentList) {
-        Utility.studentList = studentList;
     }
 
     public static int random(int bound){
@@ -72,11 +65,6 @@ public class Utility {
                 Character ch1 = (Character) a; Character ch2 = (Character) b;
                 return ch1.compareTo(ch2) < 0 ? -1 : ch1.compareTo(ch2) > 0 ? 1 : 0;
 
-            case "Student":
-                Student st1 = (Student) a; Student st2 = (Student) b;
-                return st1.getId().compareTo(st2.getId()) < 0 ? -1
-                        :  st1.getId().compareTo(st2.getId()) > 0 ? 1 : 0;
-
         }
         return 2; //Unknown
     }
@@ -85,7 +73,18 @@ public class Utility {
         if(a instanceof Integer && b instanceof Integer) return "Integer";
         if(a instanceof String && b instanceof String) return "String";
         if(a instanceof Character && b instanceof Character) return "Character";
-        if(a instanceof Student && b instanceof Student) return "Student";
+
         return "Unknown";
     }
+
+    public static String dateFormat(Date value) {
+        return new SimpleDateFormat("dd/MM/yyyy").format(value);
+    }
+
+    public static int getAge(Date birthDay) {
+        LocalDate birth = birthDay.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate now = LocalDate.now();
+        return Period.between(birth, now).getYears();
+    }
+
 }

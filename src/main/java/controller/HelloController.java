@@ -31,7 +31,7 @@ public class HelloController {
 
     @FXML
     public void Home(ActionEvent actionEvent) {
-        this.txtMessage.setText("Laboratory 4");
+        this.txtMessage.setText("Laboratory 6");
         this.bp.setCenter(ap);
     }
 
@@ -41,23 +41,12 @@ public class HelloController {
     }
 
     @FXML
-    public void exampleOnMousePressed(Event event) {
-        this.txtMessage.setText("Loading Example. Please wait!!!");
-
+    public void arithmeticConverterOnAction(ActionEvent actionEvent) {
+        load("arithmeticConverter.fxml");
     }
 
     @FXML
-    public void studentsOnAction(ActionEvent actionEvent) {
-        load("student.fxml");
-    }
-
-    @FXML
-    public void registerOnAction(ActionEvent actionEvent) {
-        load("register.fxml");
-    }
-
-    @FXML
-    public void coursesOnAction(ActionEvent actionEvent) {
-        load("course.fxml");
+    public void baseConverterOnAction(ActionEvent actionEvent) {
+        load("baseConverter.fxml");
     }
 }
