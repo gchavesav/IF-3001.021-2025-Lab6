@@ -7,6 +7,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class LinkedStackTest {
 
     @Test
+    void infixToPostfixTest(){
+        try {
+            System.out.println("infix: ((a-b)*(a+c)) to postfix: "
+                    +util.Utility.infixToPostfixConverter("((a-b)*(a+c))"));
+        } catch (StackException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     void test() {
         LinkedStack linkedStack = new LinkedStack();
         try {

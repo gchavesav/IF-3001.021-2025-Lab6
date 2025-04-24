@@ -1,5 +1,8 @@
 package util;
 
+import domain.LinkedStack;
+import domain.StackException;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Period;
@@ -85,6 +88,41 @@ public class Utility {
         LocalDate birth = birthDay.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate now = LocalDate.now();
         return Period.between(birth, now).getYears();
+    }
+
+    public static String infixToPostfixConverter(String exp) throws StackException {
+        LinkedStack stack = new LinkedStack();
+        String expPostFix = "";
+        for(char c : exp.toCharArray()) {
+            if (Character.isLetterOrDigit(c))
+                expPostFix += c; //lo agregamos a la exp postfija
+            else if (c == '(')
+                stack.push(c);
+            else if (c == ')') {
+                while (!stack.isEmpty() && compare(stack.peek(), '(') != 0)
+                    expPostFix += stack.pop();
+                if (!stack.isEmpty() && compare(stack.top(), '(') != 0)
+                    return "Invalid expression";
+                else if (!stack.isEmpty())
+                    stack.pop();
+            } else { //es un operador
+                while (!stack.isEmpty() && getPriority(c) <= getPriority((char) stack.peek()))
+                    expPostFix += stack.pop();
+                stack.push(c);
+            }
+        }
+        while(!stack.isEmpty())
+            expPostFix+=stack.pop();
+        return expPostFix;
+    }
+
+    private static int getPriority(char operator) {
+        switch (operator){
+            case '+': case '-': return 1; //prioridad más baja
+            case '*': case '/': return 2;
+            case '^': return 3; //prioridad más alta
+        }
+        return -1;
     }
 
 }
